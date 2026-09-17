@@ -145,7 +145,8 @@
 
 
 
-.quotes{
+.quotes
+{
     display : flex; 
     flex-direction : column; 
     justify-content : center;  

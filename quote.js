@@ -1,7 +1,7 @@
 let quote = document.getElementById("quote");
 let quotebutton = document.getElementById("newQuoteBtn");
 
-
+const getRandomQuote = () => quotes[Math.floor(Math.random() * quotes.length)];
 
 const quotes = [
     "The mind is everything. What you think you become.",
@@ -11,10 +11,10 @@ const quotes = [
     "In the middle of every difficulty lies opportunity."
 ]
 
-quote.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+quote.textContent = "Click the button to see a quote.";
 
 quotebutton.addEventListener("click", () => {
-    quote.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+    quote.textContent = getRandomQuote();
     console.log(quote.textContent);
 })
 
