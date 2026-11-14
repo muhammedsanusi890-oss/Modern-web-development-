@@ -6,17 +6,24 @@ import { errorHandler } from "./middleware/error.js";
 const app = express();
 
 app.use(express.json());
-app.use(logger); 
-app.use(errorHandler); 
+app.use(logger);
+
+app.get("/", (req, res) => {
+  res.json({
+    message: "Inventory API is running"
+  });
+});
 
 app.use("/items", itemRoutes);
 
+app.use(errorHandler);
+
 const port = process.env.PORT || 3000;
 
-if (!process.env.Vercel){
-    app.listen(port, () => {
-        console.log(`Server is running on port ${port}`);
-    }); 
+if (!process.env.VERCEL) {
+  app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+  });
 }
 
 export default app;
